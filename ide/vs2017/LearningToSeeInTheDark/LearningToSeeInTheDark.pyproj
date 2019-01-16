@@ -3,13 +3,14 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>887b1524-c543-44e4-8445-896f9706132a</ProjectGuid>
-    <ProjectHome>.</ProjectHome>
-    <StartupFile>DRHD.py</StartupFile>
+    <ProjectHome>
+    </ProjectHome>
+    <StartupFile>LearningToSeeInTheDark.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>DRHD</Name>
+    <Name>LearningToSeeInTheDark</Name>
     <RootNamespace>DRHD</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -21,12 +22,14 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="DRHD.py" />
-    <Compile Include="hdr2ldr.py" />
-    <Compile Include="hdr2ldr_test.py" />
-    <Compile Include="img_io.py" />
-    <Compile Include="ldr2hdr.py" />
-    <Compile Include="ldr2hdr_test.py" />
+    <Compile Include="DataDownloader.py" />
+    <Compile Include="download_dataset.py" />
+    <Compile Include="download_models.py" />
+    <Compile Include="LearningToSeeInTheDark.py" />
+    <Compile Include="test_Fuji.py" />
+    <Compile Include="test_Sony.py" />
+    <Compile Include="train_Fuji.py" />
+    <Compile Include="train_Sony.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
