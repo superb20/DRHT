@@ -1,8 +1,7 @@
-# Learning to See in the-Dark
+# NIMA: Neural Image Assessment
 
-Implementation of [Learning to See in the Dark](http://cchen156.web.engr.illinois.edu/paper/18CVPR_SID.pdf) in CVPR 2018, by Chen Chen, Qifeng Chen, Jia Xu, and Vladlen Koltun.
-The referenced tensorflow code can be found [here](https://github.com/cchen156/Learning-to-See-in-the-Dark).
+Implementation of [NIMA: Neural Image Assessment](https://arxiv.org/pdf/1709.05424.pdf) in CVPR 2018, by Hossein Talebi, Peyman Milanfar.
 
 Below is my mild stone.
 1. Make full pipeline code.
-2. Use Sony model for other device.
+2. Make some applications for test.
