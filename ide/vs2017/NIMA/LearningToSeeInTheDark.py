@@ -3,9 +3,6 @@ import DataDownloader
 import tensorflow as tf
 import tensorflow.contrib.slim as slim
 
-dir_model = 'model/Sony/'
-dir_dataset = 'E:/dataset/Sony/'
-
 def upsample_and_concat(x1, x2, output_channels, in_channels):
     pool_size = 2
     deconv_filter = tf.Variable(tf.truncated_normal([pool_size, pool_size, output_channels, in_channels], stddev=0.02))
@@ -60,16 +57,16 @@ def network(input):
     return out
 
 def is_model_exists():
-    if not os.path.exists(dir_model + 'model.ckpt.data-00000-of-00001'):
+    if not os.path.exists('model/Sony/model.ckpt.data-00000-of-00001'):
         return False
 
-    if not os.path.exists(dir_model + 'model.ckpt.meta'):
+    if not os.path.exists('model/Sony/model.ckpt.meta'):
         return False
 
     return True
 
 def is_dataset_exists():
-    if not os.path.exists(dir_dataset + 'Sony.zip'):
+    if not os.path.isdir('dataset/Sony/'):
         return False
 
     return True
@@ -93,9 +90,9 @@ def test_sony_model():
 
 if __name__== "__main__":
     if not is_model_exists():
-        DataDownloader.download_sony_model(dir_model)
+        DataDownloader.download_sony_model()
 
-    if not is_dataset_exists():
-        DataDownloader.download_sony_dataset()
+    #if not is_dataset_exists():
+    DataDownloader.download_sony_dataset()
 
-    #test_sony_model()
+    test_sony_model()

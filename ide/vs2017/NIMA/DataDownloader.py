@@ -1,6 +1,21 @@
 import requests
 import os
 
+def download_sony_model():
+    if not os.path.exists('model/Sony'):
+        os.makedirs('model/Sony')
+
+    print('Dowloading Sony Model (84Mb)')
+    download_file_from_google_drive('1wmx7AM6XWHjHIvpErmIouQgbQoMxAymG', 'model/Sony/model.ckpt.data-00000-of-00001')
+    download_file_from_google_drive('1OmrGMng1QuwUa8lf-_wBVvbRJwBr0ETr', 'model/Sony/model.ckpt.meta')
+
+def download_sony_dataset():
+    if not os.path.exists('dataset/Sony'):
+        os.makedirs('dataset/Sony')
+
+    print('Dowloading Sony subset... (25GB)')
+    download_file_from_google_drive('10kpAcvldtcb9G2ze5hTcF1odzu4V_Zvh', 'dataset/Sony/Sony.zip')
+
 def download_file_from_google_drive(id, destination):
     URL = "https://docs.google.com/uc?export=download"
 
@@ -29,14 +44,3 @@ def save_response_content(response, destination):
         for chunk in response.iter_content(CHUNK_SIZE):
             if chunk: # filter out keep-alive new chunks
                 f.write(chunk)
-
-
-
-print('Dowloading Sony subset... (25GB)')
-download_file_from_google_drive('10kpAcvldtcb9G2ze5hTcF1odzu4V_Zvh', 'dataset/Sony.zip')
-
-print('Dowloading Fuji subset... (52GB)')
-download_file_from_google_drive('12hvKCjwuilKTZPe9EZ7ZTb-azOmUA3HT', 'dataset/Fuji.zip')
-
-os.system('unzip dataset/Sony.zip -d dataset')
-os.system('unzip dataset/Fuji.zip -d dataset')

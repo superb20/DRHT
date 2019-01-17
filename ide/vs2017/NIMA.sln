@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "LearningToSeeInTheDark", "LearningToSeeInTheDark\LearningToSeeInTheDark.pyproj", "{887B1524-C543-44E4-8445-896F9706132A}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "NIMA", "NIMA\NIMA.pyproj", "{6EC8C2C5-F8B1-4DEB-BD58-33437105D617}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +11,13 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{887B1524-C543-44E4-8445-896F9706132A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{887B1524-C543-44E4-8445-896F9706132A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EC8C2C5-F8B1-4DEB-BD58-33437105D617}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EC8C2C5-F8B1-4DEB-BD58-33437105D617}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {427984C9-52AE-479A-A608-DC69ABA7C30F}
+		SolutionGuid = {71F7F668-DA75-4FDA-BE03-78CB84486EF1}
 	EndGlobalSection
 EndGlobal

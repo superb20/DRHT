@@ -2,17 +2,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>887b1524-c543-44e4-8445-896f9706132a</ProjectGuid>
-    <ProjectHome>
-    </ProjectHome>
-    <StartupFile>LearningToSeeInTheDark.py</StartupFile>
+    <ProjectGuid>6ec8c2c5-f8b1-4deb-bd58-33437105d617</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>download_dataset.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>LearningToSeeInTheDark</Name>
-    <RootNamespace>DRHD</RootNamespace>
-    <InterpreterId>Global|PythonCore|3.5</InterpreterId>
+    <Name>NIMA</Name>
+    <RootNamespace>NIMA</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -27,13 +25,11 @@
     <Compile Include="download_dataset.py" />
     <Compile Include="download_models.py" />
     <Compile Include="LearningToSeeInTheDark.py" />
+    <Compile Include="NIMA.py" />
     <Compile Include="test_Fuji.py" />
     <Compile Include="test_Sony.py" />
     <Compile Include="train_Fuji.py" />
     <Compile Include="train_Sony.py" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterpreterReference Include="Global|PythonCore|3.5" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
