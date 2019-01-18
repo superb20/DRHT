@@ -4,13 +4,17 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>6ec8c2c5-f8b1-4deb-bd58-33437105d617</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>download_dataset.py</StartupFile>
+    <StartupFile>NIMA_train.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>NIMA</Name>
     <RootNamespace>NIMA</RootNamespace>
+    <InterpreterId>Global|PythonCore|3.5</InterpreterId>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <CommandLineArguments>--dataset_dir E:\AVA_dataset --log_dir=train_model</CommandLineArguments>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -25,11 +29,14 @@
     <Compile Include="download_dataset.py" />
     <Compile Include="download_models.py" />
     <Compile Include="LearningToSeeInTheDark.py" />
-    <Compile Include="NIMA.py" />
+    <Compile Include="NIMA_train.py" />
     <Compile Include="test_Fuji.py" />
     <Compile Include="test_Sony.py" />
     <Compile Include="train_Fuji.py" />
     <Compile Include="train_Sony.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.5" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
