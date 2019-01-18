@@ -1,7 +1,12 @@
 # NIMA: Neural Image Assessment
 
-Implementation of [NIMA: Neural Image Assessment](https://arxiv.org/pdf/1709.05424.pdf) in CVPR 2018, by Hossein Talebi, Peyman Milanfar.
+This is a Keras implementation of the paper [NIMA: Neural Image Assessment](https://arxiv.org/pdf/1709.05424.pdf) by Hossein Talebi and Peyman Milanfar.
 
 Below is my mild stone.
 1. Make full pipeline code.
 2. Make some applications for test.
+
+# References
+1. Talebi, Hossein, and Peyman Milanfar. "NIMA: Neural Image Assessment." IEEE Transactions on Image Processing (2018).
+2. [Introducing NIMA: Neural Image Assessment](https://ai.googleblog.com/2017/12/introducing-nima-neural-image-assessment.html) - Googla AI Blog
+
