@@ -4,7 +4,8 @@ import tensorflow as tf
 # Processing
 import multiprocessing
 
-
+# etc
+import os
 
 '''
 ./train_eval_nima.py --dataset_dir <path to dataset> \
@@ -12,6 +13,8 @@ import multiprocessing
     --log_dir <path to train dir> \
     --checkpoint_path <path to inception_v2.ckpt> \
     --checkpoint_exclude_scopes=InceptionV2/Logits
+
+--dataset_dir E:\AVA_dataset --log_dir=train_model
 '''
 
 tf.app.flags.DEFINE_integer('batch_size', 200, 'The number of samples in each batch.')
@@ -30,25 +33,7 @@ tf.app.flags.DEFINE_integer('save_interval_secs', 600, 'The frequency with which
 tf.app.flags.DEFINE_integer('cpu_cores', multiprocessing.cpu_count(), 'The number of CPU cores to use for dataset preprocessing.')
 FLAGS = tf.app.flags.FLAGS
 
-#def preprocess(example, num_classes=10, is_training=True):
-#    """Extract and preprocess dataset features.
-#    Args:
-#      example: an instance of protobuf-encoded example.
-#      num_classes: number of predicted classes.  Defaults to 10.
-#      is_training: whether is training or not.
-#    Returns:
-#      A tuple of `image` and `scores` tensors.
-#    """
-#    features = {'scores': tf.VarLenFeature(tf.float32),
-#                'image': tf.FixedLenFeature((), tf.string)}
-#    parsed = tf.parse_single_example(example, features)
-#    image = tf.image.decode_jpeg(parsed['image'], channels=3)
-#    image = nima.preprocess_image(image, is_training=is_training)
-#    scores = parsed['scores']
-#    scores = tf.sparse_tensor_to_dense(scores)
-#    scores = tf.reshape(scores, [num_classes])
-#    scores = scores / tf.reduce_sum(scores, axis=-1, keepdims=True)
-#    return image, scores
+
 
 
 
@@ -95,21 +80,41 @@ def get_dataset(dataset_dir, split_name, batch_size, workers):
     Returns:
       A tuple of Dataset iterator and a number of examples.
     """
-#    folder = os.path.join(dataset_dir, '{}_*.tfrecord'.format(split_name))
-#    filenames = tf.data.Dataset.list_files(folder)
-#    dataset = tf.data.TFRecordDataset(filenames)
-#    dataset = dataset.shuffle(1000)
-#    dataset = dataset.repeat()
-#    dataset = dataset.map(preprocess, num_parallel_calls=workers)
-#    dataset = dataset.apply(
-#        tf.contrib.data.batch_and_drop_remainder(batch_size))
-#    dataset = dataset.prefetch(2)
+    folder = os.path.join(dataset_dir, '{}_*.tfrecord'.format(split_name))
+    filenames = tf.data.Dataset.list_files(folder)
+    dataset = tf.data.TFRecordDataset(filenames)
+    dataset = dataset.shuffle(1000)
+    dataset = dataset.repeat()
+    dataset = dataset.map(preprocess, num_parallel_calls=workers)
+    dataset = dataset.apply(tf.contrib.data.batch_and_drop_remainder(batch_size))
+    dataset = dataset.prefetch(2)
+    filename = '{}.txt'.format(split_name)
+    
+    with open(os.path.join(dataset_dir, filename), 'r') as f:
+        examples = int(f.read().strip())
 
-#    filename = '{}.txt'.format(split_name)
-#    with open(os.path.join(dataset_dir, filename), 'r') as f:
-#        examples = int(f.read().strip())
+    return dataset.make_one_shot_iterator(), examples
 
-#    return dataset.make_one_shot_iterator(), examples
+def preprocess(example, num_classes=10, is_training=True):
+    """
+    Extract and preprocess dataset features.
+    Args:
+      example: an instance of protobuf-encoded example.
+      num_classes: number of predicted classes.  Defaults to 10.
+      is_training: whether is training or not.
+    Returns:
+      A tuple of `image` and `scores` tensors.
+    """
+    features = {'scores': tf.VarLenFeature(tf.float32), 'image': tf.FixedLenFeature((), tf.string)}
+    parsed = tf.parse_single_example(example, features)
+    image = tf.image.decode_jpeg(parsed['image'], channels=3)
+    #image = nima.preprocess_image(image, is_training=is_training)
+    scores = parsed['scores']
+    scores = tf.sparse_tensor_to_dense(scores)
+    scores = tf.reshape(scores, [num_classes])
+    scores = scores / tf.reduce_sum(scores, axis=-1, keepdims=True)
+
+    return image, scores
 
 def main(_):
     tf.logging.set_verbosity(tf.logging.INFO)
