@@ -3,8 +3,10 @@
 This is a Keras implementation of the paper [NIMA: Neural Image Assessment](https://arxiv.org/pdf/1709.05424.pdf) by Hossein Talebi and Peyman Milanfar.
 
 Below is my mild stone.
-1. Make full pipeline code.
-2. Make some applications for test.
+1. Check other open source
+2. Make full pipeline code.
+3. Refactoring
+4. Make some applications for performance test.
 
 # References
 1. Talebi, Hossein, and Peyman Milanfar. "NIMA: Neural Image Assessment." IEEE Transactions on Image Processing (2018).
