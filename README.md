@@ -12,7 +12,10 @@ Below is my mild stone.
 ## Evaluation
 
 python evaluate_mobilenet.py -dir test_images
+
 python evaluate_nasnet.py -dir test_images -resize true
+
+
 # References
 1. Talebi, Hossein, and Peyman Milanfar. "NIMA: Neural Image Assessment." IEEE Transactions on Image Processing (2018).
 2. [Introducing NIMA: Neural Image Assessment](https://ai.googleblog.com/2017/12/introducing-nima-neural-image-assessment.html) - Googla AI Blog
