@@ -32,6 +32,9 @@
   <ItemGroup>
     <Compile Include="evaluate_mobilenet.py" />
     <Compile Include="score_utils.py" />
+    <Compile Include="train_mobilenet.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
