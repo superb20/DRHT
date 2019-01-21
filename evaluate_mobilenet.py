@@ -89,8 +89,7 @@ def ranking_score(score_list):
     score_list = sorted(score_list, key=lambda x: x[1], reverse=True)
 
     for i, (name, score) in enumerate(score_list):
-        print("[%3d]" % (i + 1), "%-35
-        s : Score = %0.5f" % (name, score))
+        print("[%3d]" % (i + 1), "%-35s : Score = %0.5f" % (name, score))
         rank_list.append((name, score))
 
 if __name__== "__main__":
