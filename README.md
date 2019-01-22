@@ -16,9 +16,9 @@ You can get it from [here](https://github.com/titu1994/neural-image-assessment/r
 
 # Usage
 ## Evaluation
-+ python evaluate_mobilenet.py -dir test_images
-+ python evaluate_nasnet.py -dir test_images -resize true
-+ python evaluate_inception_resnet.py -dir test_images -resize true
++ python evaluate_NIMA.py -img_dir test_images -img_resize true -network MobileNet -weight weights/mobilenet_weights.h5
++ python evaluate_NIMA.py -img_dir test_images -img_resize true -network NasNet -weight weights/nasnet_weights.h5
++ python evaluate_NIMA.py -img_dir test_images -img_resize true -network InceptionResNet -weight weights/inception_resnet_weights.h5
 
 # Example Results
 
