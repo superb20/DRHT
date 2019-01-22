@@ -11,12 +11,17 @@ Below is my mild stone.
 # Implementation Details
 + The model was trained on the [AVA: A Large-Scale Database for Aesthetic Visual Analysis](http://refbase.cvc.uab.es/files/MMP2012a.pdf), which contains roughly 255,500 images. You can get it from [here](https://github.com/mtobeiyf/ava_downloader).
 
+# Pretrained model
+You can get it from [here](https://github.com/titu1994/neural-image-assessment/releases).
+
 # Usage
 ## Evaluation
 
 python evaluate_mobilenet.py -dir test_images
 
 python evaluate_nasnet.py -dir test_images -resize true
+
+# Example Results
 
 
 # References
