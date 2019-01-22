@@ -8,6 +8,9 @@ Below is my mild stone.
 3. Refactoring
 4. Make some applications for performance test.
 
+# Implementation Details
++ The model was trained on the [AVA: A Large-Scale Database for Aesthetic Visual Analysis](http://refbase.cvc.uab.es/files/MMP2012a.pdf), which contains roughly 255,500 images. You can get it from [here](https://github.com/mtobeiyf/ava_downloader).
+
 # Usage
 ## Evaluation
 
