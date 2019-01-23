@@ -10,6 +10,7 @@ Below is my mild stone.
 
 # Implementation Details
 + The model was trained on the [AVA: A Large-Scale Database for Aesthetic Visual Analysis](http://refbase.cvc.uab.es/files/MMP2012a.pdf) by Naila Murray and Luca Marchesotti, which contains roughly 255,500 images. You can get it from [here](https://github.com/mtobeiyf/ava_downloader).
++ [TID2013](http://www.ponomarenko.info/tid2013.htm) used for technical ratings.
 
 # Pretrained model
 You can get it from [here](https://github.com/titu1994/neural-image-assessment/releases).
