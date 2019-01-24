@@ -3,10 +3,12 @@
 This is a Keras implementation of the paper [NIMA: Neural Image Assessment](https://arxiv.org/pdf/1709.05424.pdf) by Hossein Talebi and Peyman Milanfar.
 
 Below is my mild stone.
-1. Check other open source. (in progress..)
-2. Make full pipeline code. #TODO
-3. Refactoring. #TODO
-4. Make some applications for performance test. #TODO
+1. Check other open source. (Done)
+2. Make estimate code. (Done)
+3. Convert for Android version for performance test. #TODO
+4. Make some application. #TODO
+5. Make train code. #TODO
+6. Refactoring and optimize. #TODO
 
 # Implementation Details
 + The model was trained on the [AVA: A Large-Scale Database for Aesthetic Visual Analysis](http://refbase.cvc.uab.es/files/MMP2012a.pdf) by Naila Murray and Luca Marchesotti, which contains roughly 255,500 images. You can get it from [here](https://github.com/mtobeiyf/ava_downloader).
