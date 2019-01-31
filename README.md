@@ -1,6 +1,10 @@
 # NIMA: Neural Image Assessment
 
 This is a Keras implementation of the paper [NIMA: Neural Image Assessment](https://arxiv.org/pdf/1709.05424.pdf) by Hossein Talebi and Peyman Milanfar.
+
+
+
+
 Quantification of image quality and aesthetics has been.
 
 Below is my mild stone.
