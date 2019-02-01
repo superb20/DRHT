@@ -5,6 +5,15 @@ This is a Keras implementation of the paper [NIMA: Neural Image Assessment](http
 
 
 
+
+
+
+
+
+
+
+
+
 Quantification of image quality and aesthetics has been.
 
 Below is my mild stone.
