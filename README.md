@@ -9,9 +9,9 @@ Quantification of image quality and aesthetics has been.
 Below is my mild stone.
 1. Check other open source. (Done)
 2. Make estimate code. (Done)
-3. Convert for Android version for performance test. #TODO
-4. Make some application. #TODO
-5. Make train code. #TODO
+3. Make train code. #TODO
+4. Convert for Android version for performance test. #TODO
+5. Make some application. #TODO
 6. Refactoring and optimize. #TODO
 
 # Implementation Details
@@ -19,7 +19,7 @@ Below is my mild stone.
 + [TID2013](http://www.ponomarenko.info/tid2013.htm) used for technical ratings.
 
 # Pretrained model
-You can get it from [here](https://github.com/titu1994/neural-image-assessment/releases).
++ You can get models from [here](https://github.com/titu1994/neural-image-assessment/releases).
 
 # Usage
 ## Evaluation
