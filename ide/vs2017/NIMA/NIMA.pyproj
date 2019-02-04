@@ -4,14 +4,14 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>6ec8c2c5-f8b1-4deb-bd58-33437105d617</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>evaluate_NIMA.py</StartupFile>
+    <StartupFile>train_mobilenet.py</StartupFile>
     <SearchPath>..\..\..\..\NIMA-Neural-Image-Assessment</SearchPath>
     <WorkingDirectory>..\..\..\</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>NIMA</Name>
     <RootNamespace>NIMA</RootNamespace>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <CommandLineArguments>-img_dir test_images -img_resize true -network NasNet -weight weights/nasnet_weights.h5</CommandLineArguments>
+    <CommandLineArguments>-img_dir test_images -img_resize true -network InceptionResNet -weight weights/inception_resnet_weights.h5</CommandLineArguments>
     <EnableNativeCodeDebugging>True</EnableNativeCodeDebugging>
     <InterpreterId>Global|PythonCore|3.5</InterpreterId>
     <InterpreterPath>
@@ -30,9 +30,7 @@
     <InterpreterReference Include="Global|PythonCore|3.5" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="evaluate_inception_resnet.py" />
-    <Compile Include="evaluate_nasnet.py" />
-    <Compile Include="evaluate_mobilenet.py" />
+    <Compile Include="data_loader.py" />
     <Compile Include="evaluate_NIMA.py">
       <SubType>Code</SubType>
     </Compile>

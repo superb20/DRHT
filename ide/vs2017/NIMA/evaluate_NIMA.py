@@ -127,6 +127,12 @@ def ranking_score(score_list):
 
     return rank_list
 
+import tensorflow as tf
+from tensorflow.python.platform import gfile
+from tensorflow.core.protobuf import saved_model_pb2
+from tensorflow.python.util import compat
+
+
 if __name__ == "__main__":
     parser = get_argument_parser()    
     config = parse_argument(parser.parse_args())
@@ -138,3 +144,11 @@ if __name__ == "__main__":
     score_list = prediction_score(model, config['network'], images, config['target_size'])
 
     rank_list = ranking_score(score_list)
+
+    parser = get_argument_parser()    
+    config = parse_argument(parser.parse_args())
+    model = set_model(config['network'], config['weight'])
+
+    converter = tf.contrib.lite.TFLiteConverter.from_keras_model_file("test.h5")
+    tflite_model = converter.convert()
+    open("converted_model.tflite", "wb").write(tflite_model)
