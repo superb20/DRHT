@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>6ec8c2c5-f8b1-4deb-bd58-33437105d617</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>train_mobilenet.py</StartupFile>
+    <StartupFile>h5_to_tflite.py</StartupFile>
     <SearchPath>..\..\..\..\NIMA-Neural-Image-Assessment</SearchPath>
     <WorkingDirectory>..\..\..\</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -34,10 +34,12 @@
     <Compile Include="evaluate_NIMA.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="score_utils.py" />
-    <Compile Include="train_mobilenet.py">
+    <Compile Include="h5_to_tflite.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="keras_to_tensorflow.py" />
+    <Compile Include="score_utils.py" />
+    <Compile Include="train_mobilenet.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
