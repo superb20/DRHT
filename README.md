@@ -22,10 +22,18 @@ Below is my mild stone.
 + You can get models from [here](https://github.com/titu1994/neural-image-assessment/releases).
 
 # Usage
+## TRAIN
++ python train_mobilenet.py
+
 ## Evaluation
 + python evaluate_NIMA.py -img_dir test_images -img_resize true -network MobileNet -weight weights/mobilenet_weights.h5
 + python evaluate_NIMA.py -img_dir test_images -img_resize true -network NasNet -weight weights/nasnet_weights.h5
 + python evaluate_NIMA.py -img_dir test_images -img_resize true -network InceptionResNet -weight weights/inception_resnet_weights.h5
+
+## convert h5 to tflite
++ python h5_to_tflite.py (TocoConverter is not working on Windows, I used [Colab](https://colab.research.google.com))
+
+
 
 # Example Results
 
