@@ -7,6 +7,7 @@ from keras.callbacks import ModelCheckpoint
 from keras.applications.mobilenet import MobileNet
 from keras import backend as K
 from data_loader import train_generator, val_generator
+import tensorflow as tf
 
 image_size = 224
 
@@ -38,9 +39,10 @@ if __name__ == "__main__":
     checkpoint = ModelCheckpoint(model_path, monitor='val_loss', verbose=1, save_weights_only=True, save_best_only=True, mode='min')
     callbacks = [checkpoint]
 
-    batchsize = 200
+    #batchsize = 200
+    batchsize = 10
     #epochs = 20
-    epochs = 1
+    epochs = 20
 
     model.fit_generator(train_generator(batchsize=batchsize),
                         #steps_per_epoch=(250000. // batchsize),
@@ -48,6 +50,9 @@ if __name__ == "__main__":
                         epochs=epochs, verbose=1, callbacks=callbacks,
                         validation_data=val_generator(batchsize=batchsize),
                         #validation_steps=(5000. // batchsize))
-                        validation_steps=(200. // batchsize))
+                        validation_steps=(50. // batchsize))
 
-    model.save('weights/mobilenet_model.h5')
+    # Save tf.keras model in HDF5 format.
+    keras_file = 'weights/mobilenet_model_keras.h5'
+    tf.keras.models.save_model(model, keras_file)
+    #model.save('weights/mobilenet_model.h5')

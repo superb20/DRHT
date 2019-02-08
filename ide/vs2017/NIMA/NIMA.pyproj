@@ -11,7 +11,7 @@
     <Name>NIMA</Name>
     <RootNamespace>NIMA</RootNamespace>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <CommandLineArguments>-img_dir test_images -img_resize true -network InceptionResNet -weight weights/inception_resnet_weights.h5</CommandLineArguments>
+    <CommandLineArguments>-img_dir test_images -img_resize true -network MobileNet -weight weights/mobilenet_weights.h5</CommandLineArguments>
     <EnableNativeCodeDebugging>True</EnableNativeCodeDebugging>
     <InterpreterId>Global|PythonCore|3.5</InterpreterId>
     <InterpreterPath>
@@ -34,10 +34,7 @@
     <Compile Include="evaluate_NIMA.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="h5_to_tflite.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="keras_to_tensorflow.py" />
+    <Compile Include="h5_to_tflite.py" />
     <Compile Include="score_utils.py" />
     <Compile Include="train_mobilenet.py" />
   </ItemGroup>
