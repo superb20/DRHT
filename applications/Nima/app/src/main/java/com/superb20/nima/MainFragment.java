@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.io.IOException;
+
 /**
  * Created by Superb20 on 2019-02-14.
  */
@@ -17,10 +19,19 @@ import android.view.ViewGroup;
 public class MainFragment extends Fragment {
     private final static String TAG = "MainFragment";
 
+    private NIMA mNima = null;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "onCreate()");
+
+        try {
+            mNima = new NIMA(getActivity());
+        } catch (IOException e) {
+            Log.i(TAG, "onCreate() fail");
+            e.printStackTrace();
+        }
     }
 
     /**
