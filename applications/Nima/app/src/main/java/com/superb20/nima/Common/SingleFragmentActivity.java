@@ -1,9 +1,11 @@
-package com.superb20.nima;
+package com.superb20.nima.Common;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+
+import com.superb20.nima.R;
 
 /**
  * Created by Superb20 on 2018-09-04.

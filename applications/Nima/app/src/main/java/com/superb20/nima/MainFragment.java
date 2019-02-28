@@ -1,25 +1,37 @@
 package com.superb20.nima;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.superb20.nima.Common.PermissionHelper;
 
 import java.io.IOException;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 /**
  * Created by Superb20 on 2019-02-14.
  */
 
-// https://codelabs.developers.google.com/codelabs/tensorflow-for-poets-2-tflite/#3
-
-public class MainFragment extends Fragment {
+public class MainFragment extends Fragment implements View.OnClickListener {
     private final static String TAG = "MainFragment";
+    private final static String MODEL_PATH = "mobilenet_model.tflite";
+    private final static int REQUEST_GALLERY = 0;
 
     private NIMA mNima = null;
+    private Executor mExecutor = Executors.newSingleThreadExecutor();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,10 +39,11 @@ public class MainFragment extends Fragment {
         Log.i(TAG, "onCreate()");
 
         try {
-            mNima = new NIMA(getActivity());
+            initTensorFlowAndLoadModel();
         } catch (IOException e) {
-            Log.i(TAG, "onCreate() fail");
+            Log.e(TAG, "onCreate() fail");
             e.printStackTrace();
+            getActivity().finish();
         }
     }
 
@@ -49,14 +62,74 @@ public class MainFragment extends Fragment {
     @Override
     public void onViewCreated(final View view, Bundle savedInstanceState) {
         Log.i(TAG, "onViewCreated()");
+        view.findViewById(R.id.btn_album).setOnClickListener(this);
     }
 
-    /**
-     * Load the model and labels.
-     */
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        Log.i(TAG, "onActivityCreated()");
+    public void onResume() {
+        Log.i(TAG, "onResume()");
+        super.onResume();
+
+        if (!PermissionHelper.hasStoragePermission(getActivity())) {
+            Log.d(TAG, "has not storage permission");
+            PermissionHelper.requestStoragePermission(getActivity());
+            return;
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.i(TAG, "onDestroy()");
+        super.onDestroy();
+        mExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                mNima.close();
+            }
+        });
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_album:
+                loadAlbum();
+                break;
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode != Activity.RESULT_OK)
+            return;
+
+        if (requestCode == REQUEST_GALLERY) {
+            Uri selectedImage = data.getData();
+
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), selectedImage);
+                mNima.imageAssessment(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void loadAlbum() {
+        Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(i, REQUEST_GALLERY);
+    }
+
+    private void initTensorFlowAndLoadModel() throws IOException {
+        mExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    mNima = NIMA.create(getActivity().getAssets(), MODEL_PATH);
+                } catch (final Exception e) {
+                    throw new RuntimeException("Error initializing TensorFlow!", e);
+                }
+            }
+        });
     }
 }
