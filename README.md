@@ -26,12 +26,12 @@ Below is my mild stone.
  python train_mobilenet.py
 
 ## Evaluation
- python evaluate_NIMA.py -img_dir test_images -img_resize true -network MobileNet -weight weights/mobilenet_weights.h5
- python evaluate_NIMA.py -img_dir test_images -img_resize true -network NasNet -weight weights/nasnet_weights.h5
- python evaluate_NIMA.py -img_dir test_images -img_resize true -network InceptionResNet -weight weights/inception_resnet_weights.h5
+ $python evaluate_NIMA.py -img_dir test_images -img_resize true -network MobileNet -weight weights/mobilenet_weights.h5
+ $python evaluate_NIMA.py -img_dir test_images -img_resize true -network NasNet -weight weights/nasnet_weights.h5
+ $python evaluate_NIMA.py -img_dir test_images -img_resize true -network InceptionResNet -weight weights/inception_resnet_weights.h5
 
 ## Convert .h5 to .tflite
- python h5_to_tflite.py (TocoConverter is not working on Windows, so I used [Colab](https://colab.research.google.com))
+ $python h5_to_tflite.py (TocoConverter is not working on Windows, so I used [Colab](https://colab.research.google.com))
 
 # Example Results
 
