@@ -13,14 +13,15 @@ Below is my mild stone.
 6. Add further features. #TODO
 
 # Implementation Details
+## Dataset
 + The model was trained on the [AVA: A Large-Scale Database for Aesthetic Visual Analysis](http://refbase.cvc.uab.es/files/MMP2012a.pdf) by Naila Murray and Luca Marchesotti, which contains roughly 255,500 images. You can get it from [here](https://github.com/mtobeiyf/ava_downloader).
 + [TID2013](http://www.ponomarenko.info/tid2013.htm) used for technical ratings.
 
-# Pretrained model
-+ You can get models from [here](https://github.com/titu1994/neural-image-assessment/releases).
+## Pretrained model
++ You can get pretrained models from [@titu1994](https://github.com/titu1994/neural-image-assessment/releases).
 
 # Usage
-## TRAIN
+## Train
 + python train_mobilenet.py
 
 ## Evaluation
@@ -28,10 +29,8 @@ Below is my mild stone.
 + python evaluate_NIMA.py -img_dir test_images -img_resize true -network NasNet -weight weights/nasnet_weights.h5
 + python evaluate_NIMA.py -img_dir test_images -img_resize true -network InceptionResNet -weight weights/inception_resnet_weights.h5
 
-## convert h5 to tflite
-+ python h5_to_tflite.py (TocoConverter is not working on Windows, I used [Colab](https://colab.research.google.com))
-
-
+## Convert .h5 to .tflite
++ python h5_to_tflite.py (TocoConverter is not working on Windows, so I used [Colab](https://colab.research.google.com))
 
 # Example Results
 
