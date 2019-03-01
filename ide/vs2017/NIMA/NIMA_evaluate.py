@@ -100,7 +100,6 @@ def prediction_score(model, network, images, target_size):
 def preprocess_img(img, network):
     x = img_to_array(img)
     x = np.expand_dims(x, axis=0) 
-    x = mobilenet_preprocess_input(x)
     
     if network == 'MobileNet':
         x = mobilenet_preprocess_input(x)

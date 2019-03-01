@@ -2,7 +2,6 @@ package com.superb20.nima;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,7 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.superb20.nima.Common.PermissionHelper;
 
@@ -29,6 +27,8 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     private final static String TAG = "MainFragment";
     private final static String MODEL_PATH = "mobilenet_model.tflite";
     private final static int REQUEST_GALLERY = 0;
+    private final static int IMAGE_RESIZE_WIDTH = 224;
+    private final static int IMAGE_RESIZE_HEIGHT = 224;
 
     private NIMA mNima = null;
     private Executor mExecutor = Executors.newSingleThreadExecutor();
@@ -125,7 +125,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             @Override
             public void run() {
                 try {
-                    mNima = NIMA.create(getActivity().getAssets(), MODEL_PATH);
+                    mNima = NIMA.create(getActivity().getAssets(), MODEL_PATH, IMAGE_RESIZE_HEIGHT, IMAGE_RESIZE_WIDTH);
                 } catch (final Exception e) {
                     throw new RuntimeException("Error initializing TensorFlow!", e);
                 }
