@@ -8,9 +8,9 @@ Below is my mild stone.
 1. Check the other open source.(Done)
 2. Make estimate code.(Done)
 3. Make train code. #TODO
-4. Convert for Android version for performance test. #TODO
-5. Make some application. #TODO
-6. Refactoring and optimize. #TODO
+4. Convert for Android application for performance test. #TODO
+5. Refactoring and optimize. #TODO
+6. Add further features. #TODO
 
 # Implementation Details
 + The model was trained on the [AVA: A Large-Scale Database for Aesthetic Visual Analysis](http://refbase.cvc.uab.es/files/MMP2012a.pdf) by Naila Murray and Luca Marchesotti, which contains roughly 255,500 images. You can get it from [here](https://github.com/mtobeiyf/ava_downloader).
