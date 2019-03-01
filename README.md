@@ -1,14 +1,11 @@
 # NIMA: Neural Image Assessment
 
-This is a Keras implementation of the paper [NIMA: Neural Image Assessment](https://arxiv.org/pdf/1709.05424.pdf) by Hossein Talebi and Peyman Milanfar. 
-
-
-
-Quantification of image quality and aesthetics has been.
+'NIMA' is a model that is trained to predict which images a typical user would rate as looking good (technically) or attractive (aesthetically).
+This is a Keras implementation of the paper [NIMA: Neural Image Assessment(2017)](https://arxiv.org/pdf/1709.05424.pdf) by Hossein Talebi and Peyman Milanfar. You can find an introduction from [Google Research Blog](https://ai.googleblog.com/2017/12/introducing-nima-neural-image-assessment.html)
 
 Below is my mild stone.
-1. Check other open source. (Done)
-2. Make estimate code. (Done)
+1. Check the other open source.(Done)
+2. Make estimate code.(Done)
 3. Make train code. #TODO
 4. Convert for Android version for performance test. #TODO
 5. Make some application. #TODO
