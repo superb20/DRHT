@@ -8,10 +8,10 @@ This is a Keras implementation of the paper [NIMA: Neural Image Assessment(2017)
 Below is my mild stone.
 1. Check the other open source.(Done)
 2. Make estimate code.(Done)
-3. Make train code. #TODO
-4. Convert for Android application for performance test. #TODO
-5. Refactoring and optimize. #TODO
-6. Add further features. #TODO
+3. Make train code.#TODO
+4. Convert for Android application for performance test.#TODO
+5. Refactoring and optimize.#TODO
+6. Add further features.#TODO
 
 # Implementation Details
 ## Dataset
