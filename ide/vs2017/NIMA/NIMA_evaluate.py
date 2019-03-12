@@ -103,7 +103,7 @@ def preprocess_img(img, network):
     
     if network == 'MobileNet':
         x = mobilenet_preprocess_input(x)
-
+        
     elif network == 'NasNet':
         x = nasnet_preprocess_input(x)
 

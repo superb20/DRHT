@@ -4,14 +4,14 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>6ec8c2c5-f8b1-4deb-bd58-33437105d617</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>NIMA_train.py</StartupFile>
+    <StartupFile>NIMA_evaluate.py</StartupFile>
     <SearchPath>..\..\..\..\NIMA-Neural-Image-Assessment</SearchPath>
     <WorkingDirectory>..\..\..\</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>NIMA</Name>
     <RootNamespace>NIMA</RootNamespace>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <CommandLineArguments>-network MobileNet -weights mobilenet_weights_.h5 -model mobilenet_model_.h5</CommandLineArguments>
+    <CommandLineArguments>-img_dir test_images -img_resize true -network MobileNet -weight weights/mobilenet_weights.h5</CommandLineArguments>
     <EnableNativeCodeDebugging>True</EnableNativeCodeDebugging>
     <InterpreterId>Global|PythonCore|3.5</InterpreterId>
     <InterpreterPath>

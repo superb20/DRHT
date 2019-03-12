@@ -64,20 +64,14 @@ public class NIMA {
     }
 
     // TensorFlowLite buffer with 602112 bytes and a ByteBuffer with 31610880 bytes.
-    float imageAssessment(Bitmap image) {
+    float[][] imageAssessment(Bitmap image) {
         Log.d(TAG, "imageAssessment()");
         Bitmap resized_image = getResizedBitmap(image, mTargetImageHeight, mTargetImageWidth);
-        Log.d(TAG, "imageAssessment() 0");
         convertBitmapToByteBuffer(resized_image);
-        Log.d(TAG, "imageAssessment() 1");
-        float[][] result = new float[1][10];
-        Log.d(TAG, "imageAssessment() 2");
-        mInterpreter.run(mImgData, result);
-        Log.d(TAG, "imageAssessment() 3");
+        float[][] ret = new float[1][10];
+        mInterpreter.run(mImgData, ret);
 
-        float ret = meanScore(result);
-        Log.d(TAG, "imageAssessment(). ret : " + ret);
-        return meanScore(result);
+        return ret;
     }
 
     private void convertBitmapToByteBuffer(Bitmap image) {
@@ -94,27 +88,28 @@ public class NIMA {
         }
         long endTime = SystemClock.uptimeMillis();
         Log.d(TAG, "Timecost to put values into ByteBuffer: " + Long.toString(endTime - startTime));
-//
-//
-//        // Calculate how many bytes our image consists of.
-//        int bytes = 602112; // bitmap.getByteCount();
-//        ByteBuffer buffer = ByteBuffer.allocate(bytes); //Create a new buffer
-//        //bitmap.copyPixelsToBuffer(buffer); //Move the byte data to the buffer
-//
-//        return buffer;
     }
 
     private Bitmap getResizedBitmap(Bitmap image, int height, int width) {
         return Bitmap.createScaledBitmap(image, width, height, true);
     }
 
-    private float meanScore(float[][] result) {
+    public float meanScore(float[][] result) {
         float ret = 0.f;
 
         for (int i = 1; i <= 10; i++)
             ret += (i * result[0][i - 1]);
 
         return ret;
+    }
+
+    public float stdScore(float[][] result, float mean) {
+        float ret = 0.f;
+
+        for (int i = 1; i <= 10; i++)
+            ret += ((i - mean) * (i - mean) * result[0][i - 1]);
+
+        return (float)Math.sqrt(ret);
     }
 
     void close() {

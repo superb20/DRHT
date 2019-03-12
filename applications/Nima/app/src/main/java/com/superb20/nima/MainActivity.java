@@ -11,6 +11,6 @@ import com.superb20.nima.Common.SingleFragmentActivity;
 public class MainActivity extends SingleFragmentActivity {
     @Override
     public Fragment createFragment() {
-        return new MainFragment();
+        return new MainFragment().newInstance();
     }
 }
